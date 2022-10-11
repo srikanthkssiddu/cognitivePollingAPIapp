@@ -2,7 +2,6 @@ import { StyleSheet, Text, Button, StatusBar, SafeAreaView } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 const HomeScreen =() => {
-    
     const navigation = useNavigation();
     
     
@@ -21,7 +20,7 @@ const HomeScreen =() => {
             color='#4682b4'
             onPress={() => navigation.navigate('Content')}
         />
-      </SafeAreaView>
+        </SafeAreaView>
         
       </SafeAreaView>
       

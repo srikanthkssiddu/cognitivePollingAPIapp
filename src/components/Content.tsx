@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Card } from 'react-native-paper'; 
-import { useNavigation } from "@react-navigation/native";
 import {
-  View,
+  SafeAreaView,
   Text,
   TouchableOpacity,
   StyleSheet,
@@ -42,12 +41,13 @@ export default class App1 extends React.Component{
           serverData: [...responseJson.hits,...this.state.serverData],
           loading: false,
           
-         });
+        });
       })
       .catch(error => {
         console.error(error);
       });
   }
+  
  
   getMoreItems() {
     fetch('https://hn.algolia.com/api/v1/search_by_date?tags=story&page='+this.pageCount)
@@ -58,21 +58,21 @@ export default class App1 extends React.Component{
           serverData: [...responseJson.hits,...this.state.serverData],
           loading: false,
           
-         });
+        });
       })
       .catch(error => {
         console.error(error);
       });
   }
-
+ 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         {this.state.loading ? (
           <ActivityIndicator size="large" />
         ) : (
-       <FlatList
-       style={{ width: '100%' }}
+        <FlatList
+          style={{ width: '100%' }}
             keyExtractor={(item, index) => index}
             data={this.state.serverData}
             renderItem={({ item, index }) => <>
@@ -96,12 +96,11 @@ export default class App1 extends React.Component{
             </Card.Content>
             </Card>
             </>}
-            
             onEndReached={this.getMoreItems}
             onEndReachedThreshold={0.4}
-          /> 
+        /> 
         )}
-      </View>
+      </SafeAreaView>
     );
   }
 }

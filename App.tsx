@@ -12,7 +12,7 @@ function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen name="Polling_API_App" component={Home}
+        <Stack.Screen name="Polling_API_App" component={Home}
           options={{
             headerStyle: {
             backgroundColor: '#4682b4',
